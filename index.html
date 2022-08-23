@@ -9,9 +9,6 @@
 </head>
 <body>
     <h1> Coding Quiz Yayyyy</h1>
-    <div class ="Timer">
-        <span id="Timer-Display"> 60 </span>
-    </div>
 <!-- Start screen with start button that disappears and starts timer on button click -->
     <div id="Start-Screen">
         <h2>Welcome to a Cool Coding Quiz!</h2>
@@ -22,8 +19,25 @@
     <div id="Question-Div" class="hide">
     <div id="Question-Title"></div>
     <div id="Question-Choices"></div>
+    <div id="Answer-Reply"></div>
+    <div class ="Timer">
+        <span id="Timer-Display"> 60 </span>
+    </div>
 </div>
-    <div id="end-screen" class="hide">You have finished!</div>
+    <div id="end-screen" class="hide">Finished!!
+    <div id="your-score">Your score:</div>
+
+    <div class="input-group">
+        <label for="initials">Initials</label>
+        <input type="text" name="Initials" id="Initials" placeholder="ABC" />
+      </div>
+      <button id="save-button">Save Score</button>
+    </form>
+
+    </div>
+
+    
+    <button id="Retry-Button">Retry</button>
     <script src ="assets/js/index.js"></script>
 </body>
 </html>
