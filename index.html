@@ -4,9 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./assets/style/style.css">
     <title>Document</title>
 </head>
 <body>
-    
+    <h1> Coding Quiz Yayyyy</h1>
+    <div class ="Timer">
+        <span id="Timer-Display"> 60 </span>
+    </div>
+<!-- Start screen with start button that disappears and starts timer on button click -->
+    <div id="Start-Screen">
+        <h2>Welcome to a Cool Coding Quiz!</h2>
+        <p>Please answer these coding questions</p>
+        <button id="Start-Button">Start Quiz</button>
+    </div>
+
+    <div id="Question-Div" class="hide">
+    <div id="Question-Title"></div>
+    <div id="Question-Choices"></div>
+</div>
+    <div id="end-screen" class="hide">You have finished!</div>
+    <script src ="assets/js/index.js"></script>
 </body>
 </html>
