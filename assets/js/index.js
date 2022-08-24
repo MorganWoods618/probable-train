@@ -32,11 +32,6 @@ var quizQuestions = [
         answer: "script"
     },
     {
-        title: "If you type the following code in the console window, what result will you get?",
-        choices: ["true", "false"],
-        answer: "true"
-    },
-    {
         title: "JavaScript is a ___ -side programming language.",
         choices: ["client", "server", "both", "none"],
         answer: "both"
@@ -53,10 +48,6 @@ function startQuiz() {
         secondsLeft--;
         timeEl.textContent = secondsLeft + " seconds left till time's up.";
 
-        if (secondsLeft <= 0) {
-            // Stops execution of action at set interval
-            endQuiz()
-        }
 
     }, 1000);
     startScreen.setAttribute("class", "hide")
@@ -77,6 +68,10 @@ function showQuestions() {
     })
 }
 function checkAnswer() {
+    if (secondsLeft <=0){
+        alert("Out of time!");
+        endQuiz()
+    }
     if (this.value === quizQuestions[questionIndex].answer) {
         answerReply.textContent = ("You got this!")
     } else {
@@ -86,7 +81,6 @@ function checkAnswer() {
     }
     questionIndex++
     if (questionIndex === quizQuestions.length) {
-        console.log("Quiz is over!")
         endQuiz()
         //call quiz end function here
     } else {
@@ -98,16 +92,21 @@ function endQuiz() {
     questionDiv.setAttribute("class", "hide")
     endScreen.removeAttribute("class")
     yourScore.removeAttribute("hide")
-    yourScore.textContent = ("Your score ") + secondsLeft;
-    setTimeout(timerInterval)
+    if(secondsLeft >= 0) {
+        yourScore.textContent = ("Your score ") + secondsLeft;
+    }
+    saveButton.onclick = saveScore()
+    function saveScore() {
+        localStorage.setItem(secondsLeft, "Score");
+    }
 }
 
-//Save to local storage
 
+//Save to local storage
 
 function retryQuiz() {
     location.reload()
 }
+
 startButton.onclick = startQuiz
 retryButton.onclick = retryQuiz
-saveButton.onclick = saveScore
